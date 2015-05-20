@@ -1,0 +1,8 @@
+[
+   { 
+   	  "comment":							"Factory configuration for Eval",
+      "service.factoryPid":					"com.acme.prime.eval",
+      "service.pid":						"initial",
+      "name":								"EVAL"
+   }
+]

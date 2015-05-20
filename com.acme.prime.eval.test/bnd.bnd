@@ -1,0 +1,37 @@
+#
+#  OSGi TEST BUNDLE 
+#
+
+Bundle-Version:1.0.0.${tstamp}
+Bundle-Description: \
+ 	This bundle is an OSGi test bundle that tests the enRoute Blog Manager API. Projects\
+ 	that provide this API should configure their bnd.bnd file to run this test so that\
+ 	the providers can test their conformance. This bundle requires DSTest to run so this\
+ 	bundle should be included. \
+	\
+	${warning;Please update this Bundle-Description in com.acme.prime.eval.test/bnd.bnd}
+
+
+Private-Package:  \
+	com.acme.prime.eval.test
+
+Test-Cases: ${test-cases}
+
+
+-includeresource: {readme.md}
+
+-buildpath: \
+	osgi.enroute.base.api;version=1.0,\
+	biz.aQute.junit,\
+	com.acme.prime.eval.api;version=latest
+	
+-testpath: \
+	biz.aQute.junit
+
+-runbundles: \
+	com.acme.prime.eval.provider;version='[1.0.0,1.0.1)',\
+	org.apache.felix.configadmin;version='[1.8.0,1.8.1)',\
+	org.apache.felix.metatype;version='[1.0.10,1.0.11)',\
+	org.apache.felix.scr;version='[1.8.2,1.8.3)'
+-runrequires:  \
+	osgi.identity;filter:='(osgi.identity=test)'

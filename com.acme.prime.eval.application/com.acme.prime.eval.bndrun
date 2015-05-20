@@ -1,0 +1,24 @@
+#
+#  RUN SPECIFICATION
+#
+
+
+Bundle-Version:				1.0.0.${tstamp}
+Bundle-SymbolicName:		com.acme.prime.eval.application.launch
+JPMCommand:					eval
+
+
+-runfw:						org.eclipse.osgi
+
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=com.acme.prime.eval.application)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)'
+
+-runbundles: \
+	com.acme.prime.eval.application;version='[1.0.0,1.0.1)',\
+	com.acme.prime.eval.provider;version='[1.0.0,1.0.1)',\
+	org.apache.felix.configadmin;version='[1.8.0,1.8.1)',\
+	org.apache.felix.gogo.runtime;version='[0.12.1,0.12.2)',\
+	org.apache.felix.gogo.shell;version='[0.10.0,0.10.1)',\
+	org.apache.felix.metatype;version='[1.0.10,1.0.11)',\
+	org.apache.felix.scr;version='[1.8.2,1.8.3)'
